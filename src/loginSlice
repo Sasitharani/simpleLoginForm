@@ -1,0 +1,30 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const intialState ={
+    username:'',
+    islogged:false,
+};
+
+const loginSlice =createSlice({
+    name:'Login',
+    intialState,
+    //whatever is inside reducer is called aactions here actions as login and logout 
+    //whatever is defined in intialstate those variable should be defined here inside the action
+
+    reducers:{
+        login:(action,state)=>{
+            state.username=action.payload.username;
+            state.islogged=true;
+        },
+        logout:(state)=>{
+            state.username='';
+            state.islogged=false;
+        }
+    }
+
+    //
+
+})
+
+export const{login,logout}=loginSlice.actions;
+export default loginSlice.reducer;
